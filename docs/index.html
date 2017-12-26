@@ -1,0 +1,15 @@
+<button>Click</button>
+<br />
+<div></div>
+<script>
+  const $div = document.querySelector('div');
+  const test = () => {
+    const before = Date.now();
+    requestAnimationFrame(() => {
+      const after = Date.now();
+      $div.innerText = after - before;
+    })
+  }
+  const $button = document.querySelector('button');
+  $button.addEventListener('click', test);
+</script>
