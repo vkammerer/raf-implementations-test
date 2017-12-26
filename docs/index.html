@@ -2,19 +2,30 @@
   <button>Click</button>
   <br />
   <div id="firstDiv"></div>
-  <br />
   <div id="secondDiv"></div>
+  <div id="thirdDiv"></div>
+  <div id="fourthDiv"></div>
   <script>
     const $firstDiv = document.querySelector('#firstDiv');
     const $secondDiv = document.querySelector('#secondDiv');
+    const thirdDiv = document.querySelector('#thirdDiv');
+    const fourthDiv = document.querySelector('#fourthDiv');
     const test = () => {
       const time1 = Date.now();
       requestAnimationFrame(() => {
         const time2 = Date.now();
         requestAnimationFrame(() => {
           const time3 = Date.now();
-          $firstDiv.innerText = time2 - time1;
-          $secondDiv.innerText = time3 - time1;
+          requestAnimationFrame(() => {
+            const time4 = Date.now();
+            requestAnimationFrame(() => {
+              const time5 = Date.now();
+              $firstDiv.innerText = time2 - time1;
+              $secondDiv.innerText = time3 - time1;
+              $thirdDiv.innerText = time4 - time1;
+              $fourthDiv.innerText = time5 - time1;
+            })
+          })
         })
       })
     }
