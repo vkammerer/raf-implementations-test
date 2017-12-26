@@ -1,14 +1,21 @@
 <html>
   <button>Click</button>
   <br />
-  <div></div>
+  <div id="firstDiv"></div>
+  <br />
+  <div id="secondDiv"></div>
   <script>
-    const $div = document.querySelector('div');
+    const $firstDiv = document.querySelector('#firstDiv');
+    const $secondDiv = document.querySelector('#secondDiv');
     const test = () => {
-      const before = Date.now();
+      const time1 = Date.now();
       requestAnimationFrame(() => {
-        const after = Date.now();
-        $div.innerText = after - before;
+        const time2 = Date.now();
+        requestAnimationFrame(() => {
+          const time3 = Date.now();
+          $firstDiv.innerText = time2 - time1;
+          $secondDiv.innerText = time3 - time1;
+        })
       })
     }
     const $button = document.querySelector('button');
